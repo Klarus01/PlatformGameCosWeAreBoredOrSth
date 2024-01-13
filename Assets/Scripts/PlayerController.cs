@@ -83,13 +83,11 @@ public class PlayerController : MonoBehaviour
 
         if (IsWalled() && !IsGrounded() && !isWallSliding)
         {
-            Debug.Log("XDD");
             isWallSliding = true;
             sideOfWall = horizontal;
         }
         else if (!IsWalled() || IsGrounded())
         {
-            Debug.Log("XDD3");
             isWallSliding = false;
         }
 
@@ -100,12 +98,10 @@ public class PlayerController : MonoBehaviour
 
             if (horizontal.Equals(0))
             {
-                Debug.Log("XD");
                 isWallSliding = true;
             }
             else if (!sideOfWall.Equals(horizontal))
             {
-                Debug.Log("XD2");
                 isWallSliding = false;
             }
         }

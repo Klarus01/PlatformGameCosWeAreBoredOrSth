@@ -11,6 +11,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("--- Player Input ---")]
     [SerializeField] private KeyCode jump;
+    [SerializeField] private KeyCode leftShoot;
+    [SerializeField] private KeyCode rightShoot;
 
     //Moving
     [SerializeField] private float horizontal;
@@ -61,6 +63,11 @@ public class PlayerController : MonoBehaviour
         GravityScaleChange();
 
         if ((isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) && !isWallJumping)
+        {
+            Flip();
+        }
+
+        if ((Input.GetKeyUp(leftShoot) && isFacingRight || Input.GetKeyUp(rightShoot) && !isFacingRight) && horizontal.Equals(0))
         {
             Flip();
         }

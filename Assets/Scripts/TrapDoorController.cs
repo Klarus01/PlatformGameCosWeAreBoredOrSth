@@ -1,7 +1,3 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class TrapDoorController : MonoBehaviour
@@ -12,7 +8,6 @@ public class TrapDoorController : MonoBehaviour
     [SerializeField] private Sprite openSprite;
     [SerializeField] private Sprite closedSprite;
 
-    
     private void Start()
     {
         thisSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -34,5 +29,4 @@ public class TrapDoorController : MonoBehaviour
             thisBoxCollider2D.isTrigger = false;
         }
     }
-
 }

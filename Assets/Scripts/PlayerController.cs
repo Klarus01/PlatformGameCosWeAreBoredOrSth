@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     private float wallJumpingDuration = .1f;
     private float wallJumpingTimer;
     private bool isWallJumping = false;
-    private Vector2 wallJumpingPower = new Vector2(20f, 10f);
+    private Vector2 wallJumpingPower = new Vector2(10f, 5f);
 
     //Sliding
     private float wallSlidingSpeed = 2f;
@@ -33,7 +33,7 @@ public class PlayerController : MonoBehaviour
     private float wallSlidingTimer;
 
     private bool IsGrounded() => Physics2D.OverlapCircle(transform.position, 1f, groundLayerMask);
-    private bool IsWalled() => Physics2D.OverlapCircle(transform.position, 0.5f, wallLayerMask);
+    private bool IsWalled() => Physics2D.OverlapCircle(transform.position, 0.55f, wallLayerMask);
 
     private void Start()
     {
@@ -141,7 +141,7 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            rb.gravityScale = 1.2f;
+            rb.gravityScale = 1.5f;
         }
     }
 

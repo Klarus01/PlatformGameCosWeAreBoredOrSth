@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3908775703710821057}
   - component: {fileID: 6401980959391773242}
   - component: {fileID: 3437589610788796636}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TrapDoorOpen
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -2,14 +2,30 @@ using UnityEngine;
 
 public class ShootingController : MonoBehaviour
 {
-    [SerializeField] private GameObject bulletPrefab;
-    [SerializeField] private Transform gunpoint;
+    [SerializeField] private Bullet bulletPrefab;
+    [SerializeField] private Transform firePoint;
+    [SerializeField] private float fireRate = 0.2f;
 
-    void Update()
+    private float timeUIntilFire;
+    private PlayerController playerController;
+
+    private void Start()
     {
-        if (Input.GetButtonDown("Fire1"))
+        playerController = GetComponent<PlayerController>();
+    }
+
+    private void Update()
+    {
+        if (Input.GetButtonDown("Fire1") && timeUIntilFire < Time.time)
         {
-            Instantiate(bulletPrefab, gunpoint.transform);
+            Shoot();
+            timeUIntilFire = Time.time + fireRate;
         }
+    }
+
+    public void Shoot()
+    {
+        float angle = playerController.isFacingRight ? 0f : 180f;
+        Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
     }
 }

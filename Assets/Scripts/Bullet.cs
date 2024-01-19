@@ -3,22 +3,18 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
     private Rigidbody2D rb;
-    private float speed = 10f;
+    private float bulletSpeed = 10f;
     private float timeToLife = 2f;
 
-    private Vector3 direction;
-
-    private void Start()
+    private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
         Destroy(gameObject, timeToLife);
-        float horizontalInput = Input.GetAxis("Fire1");
-        direction = (horizontalInput > 0) ? Vector3.right : Vector3.left;
     }
 
     private void FixedUpdate()
     {
-        rb.velocity = direction * speed;
+        rb.velocity = transform.right * bulletSpeed;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

@@ -18,7 +18,7 @@ public class PlayerController : MonoBehaviour
     //Moving
     [SerializeField] private float horizontal;
     private float speed = 20f;
-    public bool isFacingRight = true;
+    [HideInInspector] public bool isFacingRight = true;
 
     //Jumping
     private float jumpingPower = 15f;
@@ -117,7 +117,7 @@ public class PlayerController : MonoBehaviour
 
     private void WallJump()
     {
-        if (Input.GetKeyDown(jump) && IsWalled())
+        if (Input.GetKeyDown(jump) && IsWalled() && !IsGrounded())
         {
             isWallJumping = true;
             wallJumpingTimer = wallJumpingDuration;
@@ -136,7 +136,7 @@ public class PlayerController : MonoBehaviour
             if (IsGrounded() || (IsWalled() || horizontal != 0) && wallJumpingTimer < 0)
             {
                 isWallJumping = false;
-                rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y);
+                rb.velocity = new Vector2(rb.velocity.x * 0.5f, rb.velocity.y * 0.5f);
             }
         }
     }

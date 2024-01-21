@@ -1,16 +1,40 @@
+using System;
+using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LeaverTrapDoorController : MonoBehaviour
 {
     [SerializeField] private TrapDoorController[] trapDoors;
+    [SerializeField] private GameObject interactionKeyUi;
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (col.CompareTag("Player"))
         {
-            foreach (TrapDoorController trapDoor in trapDoors)
+            interactionKeyUi.SetActive(true);
+
+        }
+    }
+
+    private void OnTriggerExit2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            interactionKeyUi.SetActive(false);
+        }
+    }
+
+    private void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.CompareTag("Player"))
+        {
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                trapDoor.SwitchState();
+                foreach (TrapDoorController trapDoor in trapDoors)
+                {
+                    trapDoor.SwitchState();
+                }
             }
         }
     }

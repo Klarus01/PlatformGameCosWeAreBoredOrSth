@@ -9,6 +9,8 @@ public class MimJump : MonoBehaviour
     [SerializeField] private KeyCode jump;
     [SerializeField] private LayerMask groundLayerMask;
 
+    private bool playerInRange = false;
+
     
     private Rigidbody2D rb;
     
@@ -24,11 +26,24 @@ public class MimJump : MonoBehaviour
         rb.velocity = new Vector2(rb.velocity.x, jumpPower);
     }
 
-    private void OnTriggerStay2D(Collider2D other)
+    private void OnTriggerEnter2D(Collider2D col)
     {
-        if (other.CompareTag("Player") && Input.GetKeyDown(jump) && IsGrounded())
+        playerInRange = true;
+    }
+
+    private void OnTriggerExit2D(Collider2D other)
+    {
+        playerInRange = false;
+    }
+
+    private void Update()
+    {
+        if (playerInRange)
         {
-            Jump();
+            if (Input.GetKeyDown(jump) && IsGrounded())
+            {
+                Jump();
+            }
         }
     }
 }

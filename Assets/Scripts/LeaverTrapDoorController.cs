@@ -1,6 +1,3 @@
-using System;
-using TMPro;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class LeaverTrapDoorController : MonoBehaviour
@@ -10,10 +7,9 @@ public class LeaverTrapDoorController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.CompareTag("Player"))
+        if (col.GetComponent<PlayerController>())
         {
             interactionKeyUi.SetActive(true);
-
         }
     }
 

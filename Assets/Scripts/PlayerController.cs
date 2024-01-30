@@ -8,15 +8,13 @@ public class PlayerController : MonoBehaviour
     [Header("--- Layers ---")]
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private LayerMask wallLayerMask;
-    [SerializeField] private LayerMask topWallLayerMask;
+    [SerializeField] private LayerMask platformLayerMask;
 
     [Header("--- Player Input ---")]
     [SerializeField] private KeyCode jump;
-    [SerializeField] private KeyCode leftShoot;
-    [SerializeField] private KeyCode rightShoot;
 
     //Moving
-    [SerializeField] private float horizontal;
+    public float horizontal;
     private float speed = 20f;
     [HideInInspector] public bool isFacingRight = true;
 
@@ -35,9 +33,9 @@ public class PlayerController : MonoBehaviour
     private float wallSlidingDuration = .1f;
     private float wallSlidingTimer;
 
-    private bool IsGrounded() => Physics2D.OverlapCircle(transform.position, 1f, groundLayerMask);
+    private bool IsGrounded() => Physics2D.OverlapCircle(transform.position, 1.1f, groundLayerMask);
     private bool IsWalled() => Physics2D.OverlapCircle(transform.position, 0.55f, wallLayerMask);
-    private bool IsTopWalled() => Physics2D.OverlapCircle(transform.position, 1f, topWallLayerMask);
+    private bool IsPlatform() => Physics2D.OverlapCircle(transform.position, 1.1f, platformLayerMask);
 
     private void Start()
     {
@@ -49,7 +47,8 @@ public class PlayerController : MonoBehaviour
         wallJumpingTimer -= Time.deltaTime;
         wallSlidingTimer -= Time.deltaTime;
         horizontal = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKeyDown(jump) && ((IsGrounded() && !IsWalled()) || IsTopWalled()))
+
+        if (Input.GetKeyDown(jump) && (IsGrounded() || IsPlatform()))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
@@ -59,16 +58,11 @@ public class PlayerController : MonoBehaviour
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        WallSlide();
         WallJump();
+        WallSlide();
         GravityScaleChange();
 
         if ((isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) && !isWallJumping)
-        {
-            Flip();
-        }
-
-        if ((Input.GetKeyDown(leftShoot) && isFacingRight || Input.GetKeyDown(rightShoot) && !isFacingRight) && horizontal.Equals(0))
         {
             Flip();
         }
@@ -117,7 +111,7 @@ public class PlayerController : MonoBehaviour
 
     private void WallJump()
     {
-        if (Input.GetKeyDown(jump) && IsWalled() && !IsGrounded())
+        if (Input.GetKeyDown(jump) && IsWalled())
         {
             isWallJumping = true;
             wallJumpingTimer = wallJumpingDuration;
@@ -133,7 +127,7 @@ public class PlayerController : MonoBehaviour
         if (isWallJumping)
         {
             rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
-            if (IsGrounded() || (IsWalled() || horizontal != 0) && wallJumpingTimer < 0)
+            if (IsGrounded() || (IsWalled() || IsPlatform() || horizontal != 0) && wallJumpingTimer < 0)
             {
                 isWallJumping = false;
                 rb.velocity = new Vector2(rb.velocity.x * 0.5f, rb.velocity.y * 0.5f);
@@ -153,7 +147,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Flip()
+    public void Flip()
     {
         isFacingRight = !isFacingRight;
         Vector3 localScale = transform.localScale;

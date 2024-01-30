@@ -6,7 +6,10 @@ public class ShootingController : MonoBehaviour
     [SerializeField] private Transform firePoint;
     [SerializeField] private float fireRate = 0.2f;
 
-    private float timeUIntilFire;
+    [SerializeField] private KeyCode leftShoot;
+    [SerializeField] private KeyCode rightShoot;
+
+    private float timeUntilFire;
     private PlayerController playerController;
 
     private void Start()
@@ -16,15 +19,20 @@ public class ShootingController : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetButtonDown("Fire1") && timeUIntilFire < Time.time)
+        if (Input.GetButtonDown("Fire1") && timeUntilFire < Time.time)
         {
             Shoot();
-            timeUIntilFire = Time.time + fireRate;
+            timeUntilFire = Time.time + fireRate;
         }
     }
 
     public void Shoot()
     {
+        if ((Input.GetKeyDown(leftShoot) && playerController.isFacingRight || Input.GetKeyDown(rightShoot) && !playerController.isFacingRight) && playerController.horizontal.Equals(0))
+        {
+            playerController.Flip();
+        }
+
         float angle = playerController.isFacingRight ? 0f : 180f;
         Instantiate(bulletPrefab, firePoint.position, Quaternion.Euler(new Vector3(0f, 0f, angle)));
     }

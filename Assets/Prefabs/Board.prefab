@@ -454,6 +454,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 4407ddfd270f34948bce04de6bc7bd96, type: 2}
   - {fileID: 11400000, guid: df11e0e6e43c4a14bad17f2571af3e87, type: 2}
   - {fileID: 11400000, guid: 79de1d39a373d77499db305644eed256, type: 2}
+  - {fileID: 11400000, guid: 98742a897e80b17479df60db59f04b5d, type: 2}
   tutorialPanel: {fileID: 658477612774097780}
   id: 0
 --- !u!61 &5713561047924401268

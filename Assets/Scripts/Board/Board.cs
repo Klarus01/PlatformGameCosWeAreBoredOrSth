@@ -5,9 +5,8 @@ public class Board : MonoBehaviour
 {
     [SerializeField] private TMP_Text interactionText;
     [SerializeField] private TMP_Text tutorialText;
-    [SerializeField] private BoardSO[] boardSO;
+    [SerializeField] private BoardSO boardSO;
     [SerializeField] private GameObject tutorialPanel;
-    [SerializeField] private int id;
     private bool isActivated;
 
     private void Update()
@@ -39,6 +38,6 @@ public class Board : MonoBehaviour
 
     private void ChangeTutorialText()
     {
-        tutorialText.SetText(boardSO[id].boardText);
+        tutorialText.SetText(boardSO.boardText);
     }
 }

@@ -447,10 +447,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionText: {fileID: 5617017607318823389}
   tutorialText: {fileID: 6830315808845509520}
+  boardSO:
+  - {fileID: 11400000, guid: fde390a38e6ba8b41bac6452fa5f5f3b, type: 2}
+  - {fileID: 11400000, guid: 32b59df71b75d784088ba8ba5f6e1943, type: 2}
+  - {fileID: 11400000, guid: 4b40a839cb1f8a443beaffaefe604f9c, type: 2}
+  - {fileID: 11400000, guid: 4407ddfd270f34948bce04de6bc7bd96, type: 2}
+  - {fileID: 11400000, guid: df11e0e6e43c4a14bad17f2571af3e87, type: 2}
+  - {fileID: 11400000, guid: 79de1d39a373d77499db305644eed256, type: 2}
+  - {fileID: 11400000, guid: 98742a897e80b17479df60db59f04b5d, type: 2}
   tutorialPanel: {fileID: 658477612774097780}
-  TutorialTexts:
-  - Hi, this is the tutorial zone where you can try out movement(AD), jumping and
-    wall jumping(W).
+  id: 0
 --- !u!61 &5713561047924401268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -485,7 +491,7 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 2}
+  m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -495,7 +501,7 @@ BoxCollider2D:
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 4, y: 10}
+  m_Size: {x: 4, y: 6}
   m_EdgeRadius: 0
 --- !u!1 &7473088975472884774
 GameObject:

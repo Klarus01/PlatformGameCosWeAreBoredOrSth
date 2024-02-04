@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -6,10 +5,9 @@ public class Board : MonoBehaviour
 {
     [SerializeField] private TMP_Text interactionText;
     [SerializeField] private TMP_Text tutorialText;
+    [SerializeField] private BoardSO boardSO;
     [SerializeField] private GameObject tutorialPanel;
     private bool isActivated;
-
-    [SerializeField] private List<string> TutorialTexts = new();
 
     private void Update()
     {
@@ -40,6 +38,6 @@ public class Board : MonoBehaviour
 
     private void ChangeTutorialText()
     {
-        tutorialText.SetText(TutorialTexts[0]);
+        tutorialText.SetText(boardSO.boardText);
     }
 }

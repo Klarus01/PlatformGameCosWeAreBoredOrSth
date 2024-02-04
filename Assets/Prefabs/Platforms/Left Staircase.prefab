@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5416749269525704232}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3846172534659599697}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 591406077008113008}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Left Staircase
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7435617979980400798}
-  m_Layer: 6
+  m_Layer: 8
   m_Name: GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -142,7 +142,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 303124588521130117, guid: 9e3c7a9ceff19cf40b09786a3f2bedda, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2012926079361480208, guid: 9e3c7a9ceff19cf40b09786a3f2bedda, type: 3}
       propertyPath: m_LocalPosition.x
@@ -211,7 +211,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 303124588521130117, guid: 9e3c7a9ceff19cf40b09786a3f2bedda, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 915291245892328634, guid: 9e3c7a9ceff19cf40b09786a3f2bedda, type: 3}
       propertyPath: m_SortingOrder
@@ -354,7 +354,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 303124588521130117, guid: 9e3c7a9ceff19cf40b09786a3f2bedda, type: 3}
       propertyPath: m_Layer
-      value: 6
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2012926079361480208, guid: 9e3c7a9ceff19cf40b09786a3f2bedda, type: 3}
       propertyPath: m_LocalPosition.x

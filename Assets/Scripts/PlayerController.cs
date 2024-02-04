@@ -4,19 +4,17 @@ public class PlayerController : MonoBehaviour
 {
     [Header("--- Components ---")]
     [SerializeField] private Rigidbody2D rb;
+    [SerializeField] private CapsuleCollider2D col;
 
     [Header("--- Layers ---")]
     [SerializeField] private LayerMask groundLayerMask;
     [SerializeField] private LayerMask wallLayerMask;
-    [SerializeField] private LayerMask topWallLayerMask;
 
     [Header("--- Player Input ---")]
     [SerializeField] private KeyCode jump;
-    [SerializeField] private KeyCode leftShoot;
-    [SerializeField] private KeyCode rightShoot;
 
     //Moving
-    [SerializeField] private float horizontal;
+    public float horizontal;
     private float speed = 20f;
     [HideInInspector] public bool isFacingRight = true;
 
@@ -26,49 +24,43 @@ public class PlayerController : MonoBehaviour
     private float wallJumpingDuration = .1f;
     private float wallJumpingTimer;
     private bool isWallJumping = false;
-    private Vector2 wallJumpingPower = new Vector2(12.5f, 7.5f);
+    private Vector2 wallJumpingPower = new(15f, 10f);
 
     //Sliding
     private float wallSlidingSpeed = 2f;
     private float sideOfWall;
     private bool isWallSliding = false;
-    private float wallSlidingDuration = .1f;
-    private float wallSlidingTimer;
 
-    private bool IsGrounded() => Physics2D.OverlapCircle(transform.position, 1f, groundLayerMask);
-    private bool IsWalled() => Physics2D.OverlapCircle(transform.position, 0.55f, wallLayerMask);
-    private bool IsTopWalled() => Physics2D.OverlapCircle(transform.position, 1f, topWallLayerMask);
+    private bool IsGrounded() => Physics2D.CapsuleCast(col.bounds.center, col.size, col.direction, 0f, Vector2.down, 0.1f, groundLayerMask);
+    private bool IsCeiling() => Physics2D.CapsuleCast(col.bounds.center, col.size, col.direction, 0f, Vector2.up, 0.1f, groundLayerMask);
+    private bool IsWalled() => Physics2D.CapsuleCast(col.bounds.center, col.size, col.direction, 0f, Vector2.right * transform.localScale.x, 0.1f, wallLayerMask);
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        col = GetComponent<CapsuleCollider2D>();
     }
 
     private void Update()
     {
         wallJumpingTimer -= Time.deltaTime;
-        wallSlidingTimer -= Time.deltaTime;
         horizontal = Input.GetAxisRaw("Horizontal");
-        if (Input.GetKeyDown(jump) && ((IsGrounded() && !IsWalled()) || IsTopWalled()))
+
+        if (Input.GetKeyDown(jump) && (IsGrounded()))
         {
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
-        if (Input.GetKeyUp(jump) && rb.velocity.y > 0f)
+        if (Input.GetKeyUp(jump) && rb.velocity.y > 0f && !isWallJumping)
         {
             rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * 0.5f);
         }
 
-        WallSlide();
         WallJump();
+        WallSlide();
         GravityScaleChange();
 
         if ((isFacingRight && horizontal < 0f || !isFacingRight && horizontal > 0f) && !isWallJumping)
-        {
-            Flip();
-        }
-
-        if ((Input.GetKeyDown(leftShoot) && isFacingRight || Input.GetKeyDown(rightShoot) && !isFacingRight) && horizontal.Equals(0))
         {
             Flip();
         }
@@ -84,11 +76,6 @@ public class PlayerController : MonoBehaviour
 
     private void WallSlide()
     {
-        if (wallSlidingTimer > 0)
-        {
-            return;
-        }
-
         if (IsWalled() && !IsGrounded() && !isWallSliding)
         {
             isWallSliding = true;
@@ -101,7 +88,6 @@ public class PlayerController : MonoBehaviour
 
         if (isWallSliding)
         {
-            wallSlidingTimer = wallSlidingDuration;
             rb.velocity = new Vector2(0, -wallSlidingSpeed);
 
             if (horizontal.Equals(0))
@@ -117,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     private void WallJump()
     {
-        if (Input.GetKeyDown(jump) && IsWalled() && !IsGrounded())
+        if (Input.GetKeyDown(jump) && IsWalled())
         {
             isWallJumping = true;
             wallJumpingTimer = wallJumpingDuration;
@@ -132,9 +118,11 @@ public class PlayerController : MonoBehaviour
 
         if (isWallJumping)
         {
+            Debug.Log("XD");
             rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
-            if (IsGrounded() || (IsWalled() || horizontal != 0) && wallJumpingTimer < 0)
+            if (IsGrounded() || IsCeiling() || (IsWalled() || horizontal != 0) && wallJumpingTimer < 0)
             {
+                Debug.Log("XD1");
                 isWallJumping = false;
                 rb.velocity = new Vector2(rb.velocity.x * 0.5f, rb.velocity.y * 0.5f);
             }
@@ -153,7 +141,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void Flip()
+    public void Flip()
     {
         isFacingRight = !isFacingRight;
         Vector3 localScale = transform.localScale;

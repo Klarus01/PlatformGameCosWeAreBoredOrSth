@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
@@ -25,5 +23,11 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("umrzyłeś");
             OnPlayerDeath?.Invoke();
         }
+    }
+
+    public void Respawn()
+    {
+        health = maxHealth;
+        OnPlayerDamaged?.Invoke();
     }
 }

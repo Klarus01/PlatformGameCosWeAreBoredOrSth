@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4632197320645206744}
   - component: {fileID: 8728794455340373931}
   - component: {fileID: 7820267221622883912}
+  - component: {fileID: 146977816451332469}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -116,18 +117,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 5169068629386160898}
+  col: {fileID: 0}
   groundLayerMask:
     serializedVersion: 2
     m_Bits: 64
   wallLayerMask:
     serializedVersion: 2
     m_Bits: 192
-  topWallLayerMask:
-    serializedVersion: 2
-    m_Bits: 0
   jump: 119
-  leftShoot: 276
-  rightShoot: 275
   horizontal: 0
   isFacingRight: 1
 --- !u!114 &8728794455340373931
@@ -145,6 +142,8 @@ MonoBehaviour:
   bulletPrefab: {fileID: 4339803514478791758, guid: 64efc109eaf4a154f9cfad6802f3d02f, type: 3}
   firePoint: {fileID: 3361168987450180626}
   fireRate: 0
+  leftShoot: 276
+  rightShoot: 275
 --- !u!114 &7820267221622883912
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,8 +156,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ccea40a3cfb117545a28c24df18ec52e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 0
+  health: 6
   maxHealth: 6
+--- !u!114 &146977816451332469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1205574118614440413}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41342abaa1436ba4e9efc530080b3ed9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  deathScreenCanvas: {fileID: 0}
+  deathSound: {fileID: 0}
 --- !u!1 &1462812785644730506
 GameObject:
   m_ObjectHideFlags: 0

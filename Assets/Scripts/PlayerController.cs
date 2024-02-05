@@ -5,6 +5,9 @@ public class PlayerController : MonoBehaviour
     [Header("--- Components ---")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private CapsuleCollider2D col;
+    [SerializeField] private PlayerHealth playerHealth;
+
+    [SerializeField] private Transform respawnPoint;
 
     [Header("--- Layers ---")]
     [SerializeField] private LayerMask groundLayerMask;
@@ -16,6 +19,7 @@ public class PlayerController : MonoBehaviour
     //Moving
     public float horizontal;
     private float speed = 20f;
+    private Vector2 damagedPower = new(10f, 5f);
     [HideInInspector] public bool isFacingRight = true;
 
     //Jumping
@@ -39,6 +43,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -147,5 +152,16 @@ public class PlayerController : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;
+    }
+
+    public void SetNewRespawnPoint(Transform newRespawnPoint)
+    {
+        respawnPoint = newRespawnPoint;
+    }
+
+    public void RespawnPlayer()
+    {
+        transform.position = respawnPoint.position;
+        playerHealth.Respawn();
     }
 }

@@ -1,12 +1,14 @@
 using UnityEngine;
 
-public class DamageOnCollision : MonoBehaviour
+public class Spike : MonoBehaviour
 {
+    private float damage = 6f;
+
     private void OnCollisionEnter2D(Collision2D col)
     {
         if (col.gameObject.GetComponent<PlayerController>())
         {
-            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(1);
+            col.gameObject.GetComponent<PlayerHealth>().TakeDamage(damage);
         }
     }
 }

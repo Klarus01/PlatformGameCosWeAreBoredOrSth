@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     //Moving
     public float horizontal;
     private float speed = 20f;
-    private Vector2 damagedPower = new(10f, 5f);
     [HideInInspector] public bool isFacingRight = true;
 
     //Jumping
@@ -51,8 +50,9 @@ public class PlayerController : MonoBehaviour
         wallJumpingTimer -= Time.deltaTime;
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(jump) && (IsGrounded()))
+        if (Input.GetKeyDown(jump) && (IsGrounded()) && !IsWalled())
         {
+            Debug.Log("XD");
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
     private void WallJump()
     {
-        if (Input.GetKeyDown(jump) && IsWalled())
+        if (Input.GetKeyDown(jump) && IsWalled() && !IsGrounded())
         {
             isWallJumping = true;
             wallJumpingTimer = wallJumpingDuration;
@@ -123,11 +123,9 @@ public class PlayerController : MonoBehaviour
 
         if (isWallJumping)
         {
-            Debug.Log("XD");
             rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             if (IsGrounded() || IsCeiling() || (IsWalled() || horizontal != 0) && wallJumpingTimer < 0)
             {
-                Debug.Log("XD1");
                 isWallJumping = false;
                 rb.velocity = new Vector2(rb.velocity.x * 0.5f, rb.velocity.y * 0.5f);
             }

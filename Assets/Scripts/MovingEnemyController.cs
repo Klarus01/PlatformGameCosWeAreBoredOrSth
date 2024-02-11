@@ -38,13 +38,14 @@ public class MoveingEnemyController : MonoBehaviour
 
         Vector2 original = new Vector2(x, y);
 
-        Debug.DrawRay(original,Vector2.down * distance, Color.green);
-        var collision = Physics2D.Raycast(original, Vector2.down , distance);
+        Debug.DrawRay(original, Vector2.down * distance, Color.green);
+        var collision = Physics2D.Raycast(original, Vector2.down, distance);
 
         if (collision.collider == null)
         {
             return true;
         }
+
         return false;
     }
 
@@ -54,5 +55,13 @@ public class MoveingEnemyController : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!col.gameObject.GetComponent<PlayerController>())
+        {
+            ChangeDirection();
+        }
     }
 }

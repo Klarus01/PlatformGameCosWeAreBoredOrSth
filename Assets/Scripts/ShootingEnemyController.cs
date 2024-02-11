@@ -6,6 +6,7 @@ public class ShootingEnemyController : MonoBehaviour
 {
     [Header("--- Movement ---")] [SerializeField]
     private float speed = 5f;
+
     [SerializeField] private float distance = 0.2f;
     [HideInInspector] public bool isFacingRight = true;
 
@@ -18,9 +19,10 @@ public class ShootingEnemyController : MonoBehaviour
     [SerializeField] private int amountOfBullets;
 
 
-    [Header("--- Player Detection ---")] 
-    [SerializeField] private float range;
-    [SerializeField] private float seekingTime;
+    [Header("--- Player Detection ---")] [SerializeField]
+    private float range;
+
+    // [SerializeField] private float seekingTime;
 
     //movement
     private Rigidbody2D rb;
@@ -52,7 +54,6 @@ public class ShootingEnemyController : MonoBehaviour
             shoot = true;
             move = false;
             // lastTimeSeePlayer = Time.time;
-
         }
         // else if (IsSeeking())
         // {
@@ -92,7 +93,7 @@ public class ShootingEnemyController : MonoBehaviour
         //     Debug.Log("seeking");
         // }
     }
-    
+
     private bool IsShootCooldown() => lastShootTime + shootCooldown < Time.time;
     // private bool IsSeeking() => lastTimeSeePlayer + seekingTime < Time.time;
 
@@ -117,18 +118,17 @@ public class ShootingEnemyController : MonoBehaviour
         else
         {
             seeDirection = Vector2.left;
-
         }
-        
+
         Debug.DrawRay(spawnerPosition, seeDirection * range, Color.red);
         var collision = Physics2D.Raycast(spawnerPosition, seeDirection, range);
-    
-        
-        if (collision.collider)
+
+
+        if (collision.collider.gameObject.GetComponent<PlayerController>())
         {
             return true;
         }
-    
+
         return false;
     }
 
@@ -160,5 +160,13 @@ public class ShootingEnemyController : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;
+    }
+
+    private void OnTriggerEnter2D(Collider2D col)
+    {
+        if (!col.gameObject.GetComponent<PlayerController>())
+        {
+            ChangeDirection();
+        }
     }
 }

@@ -4,16 +4,15 @@ using UnityEngine;
 
 public class ShootingEnemyController : MonoBehaviour
 {
-    [Header("--- Movement ---")] [SerializeField]
-    private float speed = 5f;
-
+    [Header("--- Movement ---")] 
+    [SerializeField] private float speed = 5f;
     [SerializeField] private float distance = 0.2f;
     [HideInInspector] public bool isFacingRight = true;
 
 
-    [Header("--- Shooting ---")] [SerializeField]
-    private Transform bulletSpawnerTransform;
-
+    [Header("--- Shooting ---")] 
+    [SerializeField] private Transform bulletSpawnerTransform;
+    [SerializeField] private Transform raycastTransform;
     [SerializeField] private Transform bulletPrefab;
     [SerializeField] private float shootCooldown;
     [SerializeField] private int amountOfBullets;
@@ -109,7 +108,7 @@ public class ShootingEnemyController : MonoBehaviour
 
     private bool IsSeeingPlayer()
     {
-        var spawnerPosition = bulletSpawnerTransform.position;
+        var raycastPosition = raycastTransform.position;
         Vector2 seeDirection;
         if (direction.x > 0)
         {
@@ -120,8 +119,8 @@ public class ShootingEnemyController : MonoBehaviour
             seeDirection = Vector2.left;
         }
 
-        Debug.DrawRay(spawnerPosition, seeDirection * range, Color.red);
-        var collision = Physics2D.Raycast(spawnerPosition, seeDirection, range);
+        Debug.DrawRay(raycastPosition, seeDirection * range, Color.red);
+        var collision = Physics2D.Raycast(raycastPosition, seeDirection, range);
 
 
         if (collision.collider.gameObject.GetComponent<PlayerController>())

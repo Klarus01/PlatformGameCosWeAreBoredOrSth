@@ -116,6 +116,37 @@ Transform:
   - {fileID: 3051413805587436037}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &5423951994559102596
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8077666836311685904}
+  m_Layer: 0
+  m_Name: Raycast
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &8077666836311685904
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5423951994559102596}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.14, y: -0.27, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 3051413805587436037}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6830628003410086434
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +214,7 @@ Transform:
   - {fileID: 7239368830447473839}
   - {fileID: 565504312628475846}
   - {fileID: 206524246271160880}
+  - {fileID: 8077666836311685904}
   m_Father: {fileID: 7777723137261495036}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5891892662582798810
@@ -274,11 +306,11 @@ MonoBehaviour:
   distance: 0.2
   isFacingRight: 1
   bulletSpawnerTransform: {fileID: 206524246271160880}
+  raycastTransform: {fileID: 8077666836311685904}
   bulletPrefab: {fileID: 5442718634266157561, guid: 977729fce60434a4d825d67c6f921457, type: 3}
   shootCooldown: 1
   amountOfBullets: 1
   range: 20
-  seekingTime: 10
 --- !u!61 &9064110136173810825
 BoxCollider2D:
   m_ObjectHideFlags: 0

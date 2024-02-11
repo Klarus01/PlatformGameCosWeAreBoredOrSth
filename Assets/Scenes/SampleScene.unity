@@ -5074,6 +5074,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 951517886}
     m_Modifications:
+    - target: {fileID: 1987628675004458926, guid: cefc76b401b625c48981d6d8d27e1878, type: 3}
+      propertyPath: playerLayer.m_Bits
+      value: 512
+      objectReference: {fileID: 0}
     - target: {fileID: 3129849294978868579, guid: cefc76b401b625c48981d6d8d27e1878, type: 3}
       propertyPath: m_Name
       value: ShootingEnemy
@@ -5612,7 +5616,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1462812785644730506, guid: a1a8fc830f117de4cb755f3964e564b8, type: 3}
       propertyPath: m_Layer
-      value: 0
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 7820267221622883912, guid: a1a8fc830f117de4cb755f3964e564b8, type: 3}
       propertyPath: health

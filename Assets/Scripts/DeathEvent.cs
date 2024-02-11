@@ -1,32 +1,43 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DeathEvent : MonoBehaviour
 {
     [SerializeField] private GameObject deathScreenCanvas;
     [SerializeField] private AudioSource deathSound;
+    [SerializeField] private Button respownButton;
+
+    private void Start()
+    {
+        respownButton.onClick.AddListener(Respawn);
+    }
 
     private void OnEnable()
     {
+        PlayerHealth.OnPlayerDeath += ToggleDeathScreen;
         PlayerHealth.OnPlayerDeath += PlayDeathSound;
-        PlayerHealth.OnPlayerDeath += EnableDeathScreen;
     }
 
     private void OnDisable()
     {
+        PlayerHealth.OnPlayerDeath -= ToggleDeathScreen;
         PlayerHealth.OnPlayerDeath -= PlayDeathSound;
-        PlayerHealth.OnPlayerDeath -= EnableDeathScreen;
     }
-    
-    
+
+
     public void PlayDeathSound()
     {
         deathSound.Play();
     }
 
-    public void EnableDeathScreen()
+    public void ToggleDeathScreen()
     {
-        deathScreenCanvas.SetActive(true);
+        deathScreenCanvas.SetActive(!deathScreenCanvas.activeSelf);
+    }
+
+    private void Respawn()
+    {
+        GetComponent<PlayerController>().RespawnPlayer();
+        ToggleDeathScreen();
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "Board", menuName = "ScriptableObjects/BoardScriptableObject", order = 1)]
+[CreateAssetMenu(fileName = "Board", menuName = "ScriptableObjects/BoardScriptableObject")]
 public class BoardSO : ScriptableObject
 {
     public string boardText;

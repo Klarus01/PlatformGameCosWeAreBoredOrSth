@@ -5,6 +5,9 @@ public class PlayerController : MonoBehaviour
     [Header("--- Components ---")]
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private CapsuleCollider2D col;
+    [SerializeField] private PlayerHealth playerHealth;
+
+    [SerializeField] private Transform respawnPoint;
 
     [Header("--- Layers ---")]
     [SerializeField] private LayerMask groundLayerMask;
@@ -39,6 +42,7 @@ public class PlayerController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
+        playerHealth = GetComponent<PlayerHealth>();
     }
 
     private void Update()
@@ -46,8 +50,9 @@ public class PlayerController : MonoBehaviour
         wallJumpingTimer -= Time.deltaTime;
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        if (Input.GetKeyDown(jump) && (IsGrounded()))
+        if (Input.GetKeyDown(jump) && (IsGrounded()) && !IsWalled())
         {
+            Debug.Log("XD");
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
@@ -103,7 +108,7 @@ public class PlayerController : MonoBehaviour
 
     private void WallJump()
     {
-        if (Input.GetKeyDown(jump) && IsWalled())
+        if (Input.GetKeyDown(jump) && IsWalled() && !IsGrounded())
         {
             isWallJumping = true;
             wallJumpingTimer = wallJumpingDuration;
@@ -118,11 +123,9 @@ public class PlayerController : MonoBehaviour
 
         if (isWallJumping)
         {
-            Debug.Log("XD");
             rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
             if (IsGrounded() || IsCeiling() || (IsWalled() || horizontal != 0) && wallJumpingTimer < 0)
             {
-                Debug.Log("XD1");
                 isWallJumping = false;
                 rb.velocity = new Vector2(rb.velocity.x * 0.5f, rb.velocity.y * 0.5f);
             }
@@ -147,5 +150,16 @@ public class PlayerController : MonoBehaviour
         Vector3 localScale = transform.localScale;
         localScale.x *= -1f;
         transform.localScale = localScale;
+    }
+
+    public void SetNewRespawnPoint(Transform newRespawnPoint)
+    {
+        respawnPoint = newRespawnPoint;
+    }
+
+    public void RespawnPlayer()
+    {
+        transform.position = respawnPoint.position;
+        playerHealth.Respawn();
     }
 }

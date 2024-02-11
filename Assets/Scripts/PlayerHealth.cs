@@ -1,13 +1,15 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
+    public static event Action OnPlayerHeal;
+
     public float health, maxHealth;
+
+    public bool FullHealth() => health >= maxHealth;
 
     private void Start()
     {
@@ -25,5 +27,21 @@ public class PlayerHealth : MonoBehaviour
             Debug.Log("umrzyłeś");
             OnPlayerDeath?.Invoke();
         }
+    }
+
+    public void HealHealth(float amount)
+    {
+        health += amount;
+        OnPlayerHeal?.Invoke();
+
+        if (FullHealth())
+        {
+            health = maxHealth;
+        }
+    }
+
+    public void Respawn()
+    {
+        HealHealth(maxHealth);
     }
 }

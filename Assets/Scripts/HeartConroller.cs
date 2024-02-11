@@ -1,7 +1,4 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 
 public class HeartConroller : MonoBehaviour
@@ -14,11 +11,13 @@ public class HeartConroller : MonoBehaviour
     private void OnEnable()
     {
         PlayerHealth.OnPlayerDamaged += DrawHearts;
+        PlayerHealth.OnPlayerHeal += DrawHearts;
     }
 
     private void OnDisable()
     {
         PlayerHealth.OnPlayerDamaged -= DrawHearts;
+        PlayerHealth.OnPlayerHeal -= DrawHearts;
     }
 
     public void Start()
@@ -29,7 +28,7 @@ public class HeartConroller : MonoBehaviour
     public void DrawHearts()
     {
         ClearHearts();
-        
+
         //check how many hearts to draw
 
         float maxHealthReminder = playerHealth.maxHealth % 2;
@@ -46,8 +45,7 @@ public class HeartConroller : MonoBehaviour
             hearts[i].SetHeatImage((HeartStatus)heartStatusReminder);
         }
     }
-    
-    
+
     public void ClearHearts()
     {
         foreach (Transform t in transform)

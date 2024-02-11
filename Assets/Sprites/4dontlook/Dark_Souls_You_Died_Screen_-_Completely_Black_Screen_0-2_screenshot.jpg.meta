@@ -128,7 +128,8 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Dark_Souls_You_Died_Screen_-_Completely_Black_Screen_0-2_screenshot_0: 2968309443773790174
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

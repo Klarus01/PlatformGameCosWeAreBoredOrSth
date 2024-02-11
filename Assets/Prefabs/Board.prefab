@@ -384,7 +384,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5176471, g: 0.28235295, b: 0.06666667, a: 1}
   m_FlipX: 0
@@ -447,16 +447,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   interactionText: {fileID: 5617017607318823389}
   tutorialText: {fileID: 6830315808845509520}
-  boardSO:
-  - {fileID: 11400000, guid: fde390a38e6ba8b41bac6452fa5f5f3b, type: 2}
-  - {fileID: 11400000, guid: 32b59df71b75d784088ba8ba5f6e1943, type: 2}
-  - {fileID: 11400000, guid: 4b40a839cb1f8a443beaffaefe604f9c, type: 2}
-  - {fileID: 11400000, guid: 4407ddfd270f34948bce04de6bc7bd96, type: 2}
-  - {fileID: 11400000, guid: df11e0e6e43c4a14bad17f2571af3e87, type: 2}
-  - {fileID: 11400000, guid: 79de1d39a373d77499db305644eed256, type: 2}
-  - {fileID: 11400000, guid: 98742a897e80b17479df60db59f04b5d, type: 2}
+  boardSO: {fileID: 0}
   tutorialPanel: {fileID: 658477612774097780}
-  id: 0
+  playerController: {fileID: 0}
 --- !u!61 &5713561047924401268
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -575,7 +568,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0.5188679, g: 0.28512844, b: 0.06608224, a: 1}
   m_FlipX: 0

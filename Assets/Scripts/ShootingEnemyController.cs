@@ -140,9 +140,7 @@ public class ShootingEnemyController : MonoBehaviour
         float y = col.bounds.min.y;
 
         Vector2 original = new Vector2(x, y);
-
-        // Vector2 newVector = ; 
-
+        
         Debug.DrawRay(original, Vector2.down * distance, Color.green);
         var collision = Physics2D.Raycast(original, Vector2.down, distance);
 

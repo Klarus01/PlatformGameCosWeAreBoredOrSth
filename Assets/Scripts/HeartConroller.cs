@@ -48,9 +48,9 @@ public class HeartConroller : MonoBehaviour
 
     public void ClearHearts()
     {
-        foreach (Transform t in transform)
+        foreach (Transform transform in transform)
         {
-            Destroy(t.gameObject);
+            Destroy(transform.gameObject);
         }
 
         hearts = new List<HealthHeart>();

@@ -12,5 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9627faafd38e44ab814b7936c31410, type: 3}
   m_Name: 6
   m_EditorClassIdentifier: 
-  boardText: If you haven't figured it out yet (that means you're very good!), the
-    boards also serve as checkpoints.
+  boardText: Some clouds are invisible platforms, remember that!

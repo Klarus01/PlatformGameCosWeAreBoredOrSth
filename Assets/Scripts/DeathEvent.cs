@@ -24,15 +24,19 @@ public class DeathEvent : MonoBehaviour
         PlayerHealth.OnPlayerDeath -= PlayDeathSound;
     }
 
+    public void ToggleDeathScreen()
+    {
+        deathScreenCanvas.SetActive(!deathScreenCanvas.activeSelf);
+
+        if (deathScreenCanvas.activeSelf)
+        {
+            GetComponent<PlayerController>().PlayerDeath();
+        }
+    }
 
     public void PlayDeathSound()
     {
         deathSound.Play();
-    }
-
-    public void ToggleDeathScreen()
-    {
-        deathScreenCanvas.SetActive(!deathScreenCanvas.activeSelf);
     }
 
     private void Respawn()

@@ -1,16 +1,15 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingEnemyController : MonoBehaviour
 {
-    [Header("--- Movement ---")] 
-    [SerializeField] private float speed = 5f;
+    [Header("--- Movement ---")]
+    [SerializeField] private float speed = 12f;
     [SerializeField] private float distance = 0.2f;
     [HideInInspector] public bool isFacingRight = true;
 
 
-    [Header("--- Shooting ---")] 
+    [Header("--- Shooting ---")]
     [SerializeField] private Transform bulletSpawnerTransform;
     [SerializeField] private Transform raycastTransform;
     [SerializeField] private Transform bulletPrefab;
@@ -18,7 +17,8 @@ public class ShootingEnemyController : MonoBehaviour
     [SerializeField] private int amountOfBullets;
 
 
-    [Header("--- Player Detection ---")] [SerializeField]
+    [Header("--- Player Detection ---")]
+    [SerializeField]
     private float range;
 
     // [SerializeField] private float seekingTime;
@@ -122,10 +122,12 @@ public class ShootingEnemyController : MonoBehaviour
         Debug.DrawRay(raycastPosition, seeDirection * range, Color.red);
         var collision = Physics2D.Raycast(raycastPosition, seeDirection, range);
 
-
-        if (collision.collider.gameObject.GetComponent<PlayerController>())
+        if (collision)
         {
-            return true;
+            if (collision.collider.gameObject.GetComponent<PlayerController>())
+            {
+                return true;
+            }
         }
 
         return false;

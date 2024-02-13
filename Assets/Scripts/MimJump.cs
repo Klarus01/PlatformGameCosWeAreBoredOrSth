@@ -1,19 +1,15 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class MimJump : MonoBehaviour
 {
-    [SerializeField] private float jumpPower;
+    [SerializeField] private float jumpPower = 10f;
     [SerializeField] private KeyCode jump;
     [SerializeField] private LayerMask groundLayerMask;
 
     private bool playerInRange = false;
 
-    
     private Rigidbody2D rb;
-    
+
     private bool IsGrounded() => Physics2D.OverlapCircle(transform.position, 1f, groundLayerMask);
 
     private void Awake()
@@ -28,12 +24,18 @@ public class MimJump : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D col)
     {
-        playerInRange = true;
+        if (col.gameObject.GetComponent<PlayerController>())
+        {
+            playerInRange = true;
+        }
     }
 
-    private void OnTriggerExit2D(Collider2D other)
+    private void OnTriggerExit2D(Collider2D col)
     {
-        playerInRange = false;
+        if (col.gameObject.GetComponent<PlayerController>())
+        {
+            playerInRange = false;
+        }
     }
 
     private void Update()

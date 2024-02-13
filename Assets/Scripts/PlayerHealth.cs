@@ -6,6 +6,7 @@ public class PlayerHealth : MonoBehaviour
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
     public static event Action OnPlayerHeal;
+    private bool isDead = false;
 
     public float health, maxHealth;
 
@@ -18,13 +19,18 @@ public class PlayerHealth : MonoBehaviour
 
     public void TakeDamage(float amount)
     {
+        if (isDead)
+        {
+            return;
+        }
+
         health -= amount;
         OnPlayerDamaged?.Invoke();
 
         if (health <= 0)
         {
             health = 0;
-            Debug.Log("umrzyłeś");
+            isDead = true;
             OnPlayerDeath?.Invoke();
         }
     }
@@ -42,6 +48,7 @@ public class PlayerHealth : MonoBehaviour
 
     public void Respawn()
     {
+        isDead = false;
         HealHealth(maxHealth);
     }
 }

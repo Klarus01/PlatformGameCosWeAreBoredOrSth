@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3683145416839623949}
   - component: {fileID: 7971594591297048704}
   - component: {fileID: 8764296323834148406}
-  - component: {fileID: 2915260121326140348}
+  - component: {fileID: 3166521636206456828}
   m_Layer: 0
   m_Name: HealPickup
   m_TagString: Untagged
@@ -75,8 +75,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -1
-  m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
-  m_Color: {r: 1, g: 0.2216981, b: 0.2216981, a: 1}
+  m_Sprite: {fileID: 3465286685962602723, guid: bff195ecc6c191e49925b847cabfd0e6, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -98,8 +98,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9ba64088dafc1e449b78dd8dd7acee8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!61 &2915260121326140348
-BoxCollider2D:
+--- !u!58 &3166521636206456828
+CircleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -133,14 +133,4 @@ BoxCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
+  m_Radius: 0.7

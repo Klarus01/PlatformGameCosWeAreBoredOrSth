@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9627faafd38e44ab814b7936c31410, type: 3}
   m_Name: 2
   m_EditorClassIdentifier: 
-  boardText: These are just moving platforms!
+  boardText: Ohh, the first enemies, you can use arrows to shoot!

@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class PlayerController : MonoBehaviour
@@ -34,6 +35,15 @@ public class PlayerController : MonoBehaviour
     private float sideOfWall;
     private bool isWallSliding = false;
 
+    //Coins
+    [SerializeField] private TMP_Text coinsText;
+    private int coins = 0;
+
+    //Particles
+    [SerializeField] private GameObject coinPickupParticle;
+
+    private bool isDead = false;
+
     private bool IsGrounded() => Physics2D.CapsuleCast(col.bounds.center, col.size, col.direction, 0f, Vector2.down, 0.1f, groundLayerMask);
     private bool IsCeiling() => Physics2D.CapsuleCast(col.bounds.center, col.size, col.direction, 0f, Vector2.up, 0.1f, groundLayerMask);
     private bool IsWalled() => Physics2D.CapsuleCast(col.bounds.center, col.size, col.direction, 0f, Vector2.right * transform.localScale.x, 0.1f, wallLayerMask);
@@ -43,16 +53,22 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<CapsuleCollider2D>();
         playerHealth = GetComponent<PlayerHealth>();
+
+        GetCoins(0);
     }
 
     private void Update()
     {
+        if (isDead)
+        {
+            return;
+        }
+
         wallJumpingTimer -= Time.deltaTime;
         horizontal = Input.GetAxisRaw("Horizontal");
 
         if (Input.GetKeyDown(jump) && (IsGrounded()) && !IsWalled())
         {
-            Debug.Log("XD");
             rb.velocity = new Vector2(rb.velocity.x, jumpingPower);
         }
 
@@ -144,6 +160,11 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void PlayCoinParitcle(Transform coinTransform)
+    {
+        Instantiate(coinPickupParticle, coinTransform.position, Quaternion.identity);
+    }
+
     public void Flip()
     {
         isFacingRight = !isFacingRight;
@@ -152,13 +173,26 @@ public class PlayerController : MonoBehaviour
         transform.localScale = localScale;
     }
 
+    public void GetCoins(int coinsAmount)
+    {
+        coins += coinsAmount;
+        coinsText.SetText("Coins: " + coins);
+    }
+
     public void SetNewRespawnPoint(Transform newRespawnPoint)
     {
         respawnPoint = newRespawnPoint;
     }
 
+    public void PlayerDeath()
+    {
+        isDead = true;
+        horizontal = 0;
+    }
+
     public void RespawnPlayer()
     {
+        isDead = false;
         transform.position = respawnPoint.position;
         playerHealth.Respawn();
     }

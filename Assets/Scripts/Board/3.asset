@@ -12,4 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fe9627faafd38e44ab814b7936c31410, type: 3}
   m_Name: 3
   m_EditorClassIdentifier: 
-  boardText: If you haven't activated the lever, go back to the other side!
+  boardText: These are just moving platforms!

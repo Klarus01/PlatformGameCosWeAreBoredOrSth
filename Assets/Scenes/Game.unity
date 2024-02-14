@@ -25016,7 +25016,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1843392352891200633, guid: 99bca3c0f56fdf643a8a3c6676bebca9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.81
+      value: 2.17
       objectReference: {fileID: 0}
     - target: {fileID: 1843392352891200633, guid: 99bca3c0f56fdf643a8a3c6676bebca9, type: 3}
       propertyPath: m_LocalPosition.z
@@ -52379,6 +52379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetToFollow: {fileID: 2005462513}
+  followSpeed: 5
 --- !u!114 &1373700920
 MonoBehaviour:
   m_ObjectHideFlags: 0

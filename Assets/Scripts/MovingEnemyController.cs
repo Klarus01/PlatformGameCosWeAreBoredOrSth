@@ -1,14 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 
 public class MoveingEnemyController : MonoBehaviour
 {
-    [SerializeField] private float speed = 5f;
+    [SerializeField] private float speed = 20f;
     [SerializeField] private float distance = 0.2f;
-
 
     private Rigidbody2D rb;
     private Collider2D col;

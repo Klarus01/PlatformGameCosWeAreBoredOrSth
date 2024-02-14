@@ -1,0 +1,462 @@
+fileFormatVersion: 2
+guid: b5d97aa88561d6c468a3576c639b2792
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 2939783364905313962
+    second: iHaveNoIdea_0
+  - first:
+      213: 5157705049558089997
+    second: iHaveNoIdea_1
+  - first:
+      213: -5691046101895662105
+    second: iHaveNoIdea_2
+  - first:
+      213: 805893223131607333
+    second: iHaveNoIdea_3
+  - first:
+      213: 7393985076704099368
+    second: iHaveNoIdea_4
+  - first:
+      213: 3525778236131490012
+    second: iHaveNoIdea_5
+  - first:
+      213: -1360096737164444696
+    second: iHaveNoIdea_6
+  - first:
+      213: 1236360348885784180
+    second: iHaveNoIdea_7
+  - first:
+      213: 5922651860106250443
+    second: iHaveNoIdea_8
+  - first:
+      213: -7998613022231779582
+    second: iHaveNoIdea_9
+  - first:
+      213: 7635200852485696513
+    second: iHaveNoIdea_10
+  - first:
+      213: -854542669009520321
+    second: iHaveNoIdea_11
+  - first:
+      213: 9211148163985718375
+    second: iHaveNoIdea_12
+  - first:
+      213: 4975557209725092698
+    second: iHaveNoIdea_13
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: iHaveNoIdea_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 1
+        width: 47
+        height: 41
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa6a8cd05653cc820800000000000000
+      internalID: 2939783364905313962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_1
+      rect:
+        serializedVersion: 2
+        x: 74
+        y: 1
+        width: 47
+        height: 42
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0106277a69d39740800000000000000
+      internalID: 5157705049558089997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_2
+      rect:
+        serializedVersion: 2
+        x: 138
+        y: 1
+        width: 47
+        height: 39
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7e5332809b75501b0800000000000000
+      internalID: -5691046101895662105
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_3
+      rect:
+        serializedVersion: 2
+        x: 202
+        y: 1
+        width: 47
+        height: 48
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52177abdd9b1f2b00800000000000000
+      internalID: 805893223131607333
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_4
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 14
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 82cbc739046bc9660800000000000000
+      internalID: 7393985076704099368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_5
+      rect:
+        serializedVersion: 2
+        x: 330
+        y: 14
+        width: 36
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cd8bb6910a41ee030800000000000000
+      internalID: 3525778236131490012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_6
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 14
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8eb35214937ff1de0800000000000000
+      internalID: -1360096737164444696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_7
+      rect:
+        serializedVersion: 2
+        x: 461
+        y: 13
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 47617b1df2f682110800000000000000
+      internalID: 1236360348885784180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_8
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 18
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc880f9bc7c713250800000000000000
+      internalID: 5922651860106250443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_9
+      rect:
+        serializedVersion: 2
+        x: 589
+        y: 13
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 207af02b5d73ff090800000000000000
+      internalID: -7998613022231779582
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_10
+      rect:
+        serializedVersion: 2
+        x: 658
+        y: 14
+        width: 28
+        height: 36
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10c6b29e8bea5f960800000000000000
+      internalID: 7635200852485696513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_11
+      rect:
+        serializedVersion: 2
+        x: 717
+        y: 13
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f39f54858fd0424f0800000000000000
+      internalID: -854542669009520321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_12
+      rect:
+        serializedVersion: 2
+        x: 782
+        y: 18
+        width: 36
+        height: 28
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76c3cdfc37294df70800000000000000
+      internalID: 9211148163985718375
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: iHaveNoIdea_13
+      rect:
+        serializedVersion: 2
+        x: 845
+        y: 13
+        width: 38
+        height: 38
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a534c4dabeabc0540800000000000000
+      internalID: 4975557209725092698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: d5c69cb53f17a5b41aa80fb0c71c0d40
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      iHaveNoIdea_0: 2939783364905313962
+      iHaveNoIdea_1: 5157705049558089997
+      iHaveNoIdea_10: 7635200852485696513
+      iHaveNoIdea_11: -854542669009520321
+      iHaveNoIdea_12: 9211148163985718375
+      iHaveNoIdea_13: 4975557209725092698
+      iHaveNoIdea_2: -5691046101895662105
+      iHaveNoIdea_3: 805893223131607333
+      iHaveNoIdea_4: 7393985076704099368
+      iHaveNoIdea_5: 3525778236131490012
+      iHaveNoIdea_6: -1360096737164444696
+      iHaveNoIdea_7: 1236360348885784180
+      iHaveNoIdea_8: 5922651860106250443
+      iHaveNoIdea_9: -7998613022231779582
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

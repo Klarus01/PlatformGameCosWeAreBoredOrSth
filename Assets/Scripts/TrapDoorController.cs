@@ -2,28 +2,26 @@ using UnityEngine;
 
 public class TrapDoorController : MonoBehaviour
 {
-    private SpriteRenderer thisSpriteRenderer;
     private BoxCollider2D thisBoxCollider2D;
-    [SerializeField] private Sprite openSprite;
-    [SerializeField] private Sprite closedSprite;
+    private Animator animator;
 
     private void Start()
     {
-        thisSpriteRenderer = GetComponent<SpriteRenderer>();
         thisBoxCollider2D = GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     public void SwitchState(bool isOpen)
     {
         if (isOpen)
         {
-            thisSpriteRenderer.sprite = openSprite;
             thisBoxCollider2D.isTrigger = true;
         }
         else
         {
-            thisSpriteRenderer.sprite = closedSprite;
             thisBoxCollider2D.isTrigger = false;
         }
+
+        animator.SetBool("isOpen", isOpen);
     }
 }

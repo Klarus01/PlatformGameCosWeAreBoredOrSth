@@ -8,10 +8,8 @@ public class ShootingEnemyController : MonoBehaviour
     [SerializeField] private float speed = 12f;
     // [SerializeField] private float distance = 0.2f;
     [HideInInspector] public bool isFacingRight = true;
-    [SerializeField] private List<GameObject> waypoints; 
+    [SerializeField] private List<GameObject> waypoints;
     private int currentWaypointIndex = 0;
-
-
 
     [Header("--- Shooting ---")]
     [SerializeField] private Transform bulletSpawnerTransform;
@@ -19,7 +17,6 @@ public class ShootingEnemyController : MonoBehaviour
     [SerializeField] private Transform bulletPrefab;
     [SerializeField] private float shootCooldown;
     [SerializeField] private int amountOfBullets;
-
 
     [Header("--- Player Detection ---")]
     [SerializeField]
@@ -40,6 +37,7 @@ public class ShootingEnemyController : MonoBehaviour
     //shooting
     float lastShootTime;
 
+    private Animator animator;
     //player detection
     // private float lastTimeSeePlayer;
 
@@ -47,6 +45,7 @@ public class ShootingEnemyController : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
+        animator = GetComponent<Animator>();
     }
 
     private void Update()
@@ -83,7 +82,7 @@ public class ShootingEnemyController : MonoBehaviour
             // {
             //     ChangeDirection();
             // }
-            
+
             if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
             {
                 currentWaypointIndex++;
@@ -98,13 +97,14 @@ public class ShootingEnemyController : MonoBehaviour
 
                 }
             }
-        
+
             transform.position = Vector2.MoveTowards(transform.position,
                 waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
         }
 
         if (shoot && IsShootCooldown())
         {
+            animator.SetTrigger("Shoot");
             StartCoroutine(ShootBullets());
             lastShootTime = Time.time;
         }

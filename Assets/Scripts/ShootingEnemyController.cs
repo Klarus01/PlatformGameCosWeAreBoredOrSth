@@ -1,12 +1,16 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class ShootingEnemyController : MonoBehaviour
 {
     [Header("--- Movement ---")]
     [SerializeField] private float speed = 12f;
-    [SerializeField] private float distance = 0.2f;
+    // [SerializeField] private float distance = 0.2f;
     [HideInInspector] public bool isFacingRight = true;
+    [SerializeField] private List<GameObject> waypoints; 
+    private int currentWaypointIndex = 0;
+
 
 
     [Header("--- Shooting ---")]
@@ -73,12 +77,31 @@ public class ShootingEnemyController : MonoBehaviour
 
         if (move)
         {
-            rb.MovePosition(rb.position + direction * (speed * Time.deltaTime));
-
-            if (EdgeIsReached())
+            // rb.MovePosition(rb.position + direction * (speed * Time.deltaTime));
+            //
+            // if (EdgeIsReached())
+            // {
+            //     ChangeDirection();
+            // }
+            
+            if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
             {
-                ChangeDirection();
+                currentWaypointIndex++;
+                isFacingRight = !isFacingRight;
+                direction.x *= -1;
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1f;
+                transform.localScale = localScale;
+                Debug.Log("changed");
+                if (currentWaypointIndex >= waypoints.Count)
+                {
+                    currentWaypointIndex = 0;
+
+                }
             }
+        
+            transform.position = Vector2.MoveTowards(transform.position,
+                waypoints[currentWaypointIndex].transform.position, Time.deltaTime * speed);
         }
 
         if (shoot && IsShootCooldown())
@@ -133,39 +156,39 @@ public class ShootingEnemyController : MonoBehaviour
         return false;
     }
 
-    private bool EdgeIsReached()
-    {
-        float x = direction.x == -1 ? col.bounds.min.x - 0.1f : col.bounds.max.x + 0.1f;
+    // private bool EdgeIsReached()
+    // {
+    //     float x = direction.x == -1 ? col.bounds.min.x - 0.1f : col.bounds.max.x + 0.1f;
+    //
+    //     float y = col.bounds.min.y;
+    //
+    //     Vector2 original = new Vector2(x, y);
+    //     
+    //     Debug.DrawRay(original, Vector2.down * distance, Color.green);
+    //     var collision = Physics2D.Raycast(original, Vector2.down, distance);
+    //
+    //     if (collision.collider == null)
+    //     {
+    //         return true;
+    //     }
+    //
+    //     return false;
+    // }
 
-        float y = col.bounds.min.y;
+    // private void ChangeDirection()
+    // {
+    //     isFacingRight = !isFacingRight;
+    //     direction.x *= -1;
+    //     Vector3 localScale = transform.localScale;
+    //     localScale.x *= -1f;
+    //     transform.localScale = localScale;
+    // }
 
-        Vector2 original = new Vector2(x, y);
-        
-        Debug.DrawRay(original, Vector2.down * distance, Color.green);
-        var collision = Physics2D.Raycast(original, Vector2.down, distance);
-
-        if (collision.collider == null)
-        {
-            return true;
-        }
-
-        return false;
-    }
-
-    private void ChangeDirection()
-    {
-        isFacingRight = !isFacingRight;
-        direction.x *= -1;
-        Vector3 localScale = transform.localScale;
-        localScale.x *= -1f;
-        transform.localScale = localScale;
-    }
-
-    private void OnTriggerEnter2D(Collider2D col)
-    {
-        if (!col.gameObject.GetComponent<PlayerController>())
-        {
-            ChangeDirection();
-        }
-    }
+    // private void OnTriggerEnter2D(Collider2D col)
+    // {
+    //     if (!col.gameObject.GetComponent<PlayerController>())
+    //     {
+    //         ChangeDirection();
+    //     }
+    // }
 }

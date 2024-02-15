@@ -11,11 +11,21 @@ public class MoveController : MonoBehaviour
 
     [SerializeField] private float speed = 5f;
 
+    [SerializeField] private bool isEnemy = false;
+    private bool isFacingRight = false;
+    
     private void Update()
     {
         if (Vector2.Distance(waypoints[currentWaypointIndex].transform.position, transform.position) < .1f)
         {
             currentWaypointIndex++;
+            if (isEnemy)
+            {
+                isFacingRight = !isFacingRight;
+                Vector3 localScale = transform.localScale;
+                localScale.x *= -1f;
+                transform.localScale = localScale;
+            }
             if (currentWaypointIndex >= waypoints.Count)
             {
                 currentWaypointIndex = 0;

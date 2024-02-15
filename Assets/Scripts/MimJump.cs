@@ -6,20 +6,18 @@ public class MimJump : MonoBehaviour
     [SerializeField] private KeyCode jump;
     [SerializeField] private LayerMask groundLayerMask;
 
+    private Animator animator;
+
     private bool playerInRange = false;
 
     private Rigidbody2D rb;
 
-    private bool IsGrounded() => Physics2D.OverlapCircle(transform.position, 1f, groundLayerMask);
+    private bool IsGrounded() => Physics2D.OverlapCircle(transform.position, 1.6f, groundLayerMask);
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
-    }
-
-    private void Jump()
-    {
-        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        animator = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter2D(Collider2D col)
@@ -47,5 +45,11 @@ public class MimJump : MonoBehaviour
                 Jump();
             }
         }
+    }
+
+    private void Jump()
+    {
+        rb.velocity = new Vector2(rb.velocity.x, jumpPower);
+        animator.SetTrigger("Jump");
     }
 }

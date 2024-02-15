@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 3343356145063358953}
   - component: {fileID: 3141930940421534097}
-  - component: {fileID: 3288631386188918070}
   - component: {fileID: 1878861803925199601}
+  - component: {fileID: 3288631386188918070}
+  - component: {fileID: 2887312962665123758}
   m_Layer: 0
-  m_Name: TrapDoorClosed
+  m_Name: TrapDoor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -28,8 +29,8 @@ Transform:
   m_GameObject: {fileID: 1679993164425405139}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 13.81, y: 4.02, z: 0}
-  m_LocalScale: {x: 4.3375, y: 1, z: 1}
+  m_LocalPosition: {x: 49.025, y: 19.05, z: 0}
+  m_LocalScale: {x: 2.5, y: 2.5, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -75,17 +76,29 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: -5
-  m_Sprite: {fileID: 8166710274925509176, guid: 57fd277d6dbaf78438450bfc4fef5301, type: 3}
+  m_Sprite: {fileID: 1612155737842304417, guid: d16ce88c3488af44cbb47018f13da4cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
-  m_Size: {x: 1, y: 1}
+  m_DrawMode: 0
+  m_Size: {x: 2, y: 0.6875}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1878861803925199601
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1679993164425405139}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3684655b062465d4a88fdefab3491c52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &3288631386188918070
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -120,30 +133,37 @@ BoxCollider2D:
   m_UsedByEffector: 0
   m_CompositeOperation: 0
   m_CompositeOrder: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.35}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 7.91, y: 3.44}
-    newSize: {x: 1, y: 1}
+    oldSize: {x: 2, y: 1.375}
+    newSize: {x: 2, y: 0.6875}
     adaptiveTilingThreshold: 0.5
-    drawMode: 1
+    drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2, y: 0.7}
   m_EdgeRadius: 0
---- !u!114 &1878861803925199601
-MonoBehaviour:
+--- !u!95 &2887312962665123758
+Animator:
+  serializedVersion: 7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1679993164425405139}
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3684655b062465d4a88fdefab3491c52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  open: 0
-  openSprite: {fileID: -2185479955491978769, guid: 17baa4302ee612c4ab6c1fdb2b0fa1f7, type: 3}
-  closedSprite: {fileID: 8166710274925509176, guid: 57fd277d6dbaf78438450bfc4fef5301, type: 3}
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a185ae1f0de41774a8a98e7251f6a60d, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

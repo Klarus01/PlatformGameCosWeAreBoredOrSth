@@ -5,7 +5,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     private float bulletSpeed = 10f;
     private float timeToLife = 2f;
-    private int damage = 1;
+    [SerializeField] private int damageToEnemy = 1;
 
     private void Awake()
     {
@@ -23,7 +23,7 @@ public class Bullet : MonoBehaviour
         if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
         {
             Debug.Log("XD");
-            enemy.GetDamage(damage);
+            enemy.GetDamage(damageToEnemy);
         }
 
         Destroy(gameObject);

@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     private Rigidbody2D rb;
     private float bulletSpeed = 10f;
     private float timeToLife = 2f;
+    private int damage = 1;
 
     private void Awake()
     {
@@ -19,6 +20,12 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        if (collision.gameObject.TryGetComponent<EnemyHealth>(out EnemyHealth enemy))
+        {
+            Debug.Log("XD");
+            enemy.GetDamage(damage);
+        }
+
         Destroy(gameObject);
     }
 }

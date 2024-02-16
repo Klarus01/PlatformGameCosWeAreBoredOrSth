@@ -13,6 +13,7 @@ public class HealthPickup : MonoBehaviour
                 return;
             }
 
+            health.PlayHealthParticle(transform);
             health.HealHealth(healAmount);
             Destroy(gameObject);
         }

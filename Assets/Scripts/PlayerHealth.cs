@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class PlayerHealth : MonoBehaviour
 {
+    [SerializeField] private GameObject healthParticle;
     public static event Action OnPlayerDamaged;
     public static event Action OnPlayerDeath;
     public static event Action OnPlayerHeal;
@@ -50,5 +51,10 @@ public class PlayerHealth : MonoBehaviour
     {
         isDead = false;
         HealHealth(maxHealth);
+    }
+
+    public void PlayHealthParticle(Transform healthTransform)
+    {
+        Instantiate(healthParticle, healthTransform.position, Quaternion.identity);
     }
 }

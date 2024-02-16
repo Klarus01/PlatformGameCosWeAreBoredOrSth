@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
     //Jumping
     private float jumpingPower = 15f;
     private float wallJumpingDirection;
-    private float wallJumpingDuration = .1f;
+    private float wallJumpingDuration = .5f;
     private float wallJumpingTimer;
     private bool isWallJumping = false;
     private Vector2 wallJumpingPower = new(15f, 10f);
@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
 
     //Coins
     [SerializeField] private TMP_Text coinsText;
-    private int coins = 0;
+    public int coins = 0;
 
     //Particles
     [SerializeField] private GameObject coinPickupParticle;
@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
         col = GetComponent<CapsuleCollider2D>();
         playerHealth = GetComponent<PlayerHealth>();
 
-        GetCoins(0);
+        GetCoins(coins);
     }
 
     private void Update()
@@ -140,13 +140,14 @@ public class PlayerController : MonoBehaviour
         if (isWallJumping)
         {
             rb.velocity = new Vector2(wallJumpingDirection * wallJumpingPower.x, wallJumpingPower.y);
-            if (IsGrounded() || IsCeiling() || (IsWalled() || horizontal != 0) && wallJumpingTimer < 0)
+            if (IsGrounded() || IsCeiling() || (IsWalled() || horizontal != 0) || wallJumpingTimer < 0)
             {
                 isWallJumping = false;
                 rb.velocity = new Vector2(rb.velocity.x * 0.5f, rb.velocity.y * 0.5f);
             }
         }
     }
+
 
     private void GravityScaleChange()
     {
